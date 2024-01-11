@@ -22,8 +22,10 @@ public class User {
     private Long id;
     private String firstName;
     private String lastName;
+    private String username; // TODO: add username to UserDtoRequest
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
     private RoleUser roleUser;
     private Date createdAt;
     private Date updatedAt;
