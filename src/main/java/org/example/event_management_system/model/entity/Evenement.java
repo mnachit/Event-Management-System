@@ -1,15 +1,13 @@
 package org.example.event_management_system.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Enabled
@@ -25,4 +23,8 @@ public class Evenement {
     private Date dateFin;
     private Date createdAt;
     private Date updatedAt;
+    @ManyToOne
+    private Agenda agenda;
+    @OneToMany
+    private List<InvitationUserEvenement> invitationUserEvenements;
 }
