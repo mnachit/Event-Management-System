@@ -35,4 +35,9 @@ public class User {
     private List<Invitation> invitations;
     @OneToMany
     private List<InvitationUserEvenement> invitationUserEvenements;
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 }

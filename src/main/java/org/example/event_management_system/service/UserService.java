@@ -7,4 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface UserService {
     public User saveUserRoleAdmin(User user) throws ValidationException;
+    public User findByEmail(String email);
+
+    public boolean findByEmailAndPassword(String email, String password) throws ValidationException;
 }

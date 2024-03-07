@@ -10,6 +10,7 @@ import org.example.event_management_system.util.ErrorMessage;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -22,10 +23,28 @@ public class UserServiceImpl implements UserService {
     public User saveUserRoleAdmin(User user) throws ValidationException {
         if (userRepository.findByEmail(user.getEmail()).isPresent())
             errorMessages.add(ErrorMessage.builder().message("Email already exists").build());
+        if (userRepository.findByUsername(user.getUsername()).isPresent())
+            errorMessages.add(ErrorMessage.builder().message("Username already exists").build());
         if (errorMessages.size() > 0)
             throw new ValidationException(errorMessages);
-        user.setRoleUser(RoleUser.ADMIN);
+        user.setRoleUser(RoleUser.USER);
+        Date date = new Date();
+        user.setCreatedAt(date);
         userRepository.save(user);
         return user;
+    }
+
+    @Override
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email).get();
+    }
+
+    @Override
+    public boolean findByEmailAndPassword(String email, String password) throws ValidationException {
+        if (userRepository.findByEmailAndPassword(email, password).isEmpty()) {
+            throw new ValidationException(List.of(ErrorMessage.builder().message("Email or password is incorrect").build()));
+
+        }
+        return true;
     }
 }
