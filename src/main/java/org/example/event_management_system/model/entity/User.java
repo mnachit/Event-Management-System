@@ -23,6 +23,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String username; // TODO: add username to UserDtoRequest
+    private Integer phone;
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
@@ -35,7 +36,8 @@ public class User {
     private List<Invitation> invitations;
     @OneToMany
     private List<InvitationUserEvenement> invitationUserEvenements;
-
+    @OneToMany
+    private List<Evenement> evenement;
     public User(String email, String password) {
         this.email = email;
         this.password = password;

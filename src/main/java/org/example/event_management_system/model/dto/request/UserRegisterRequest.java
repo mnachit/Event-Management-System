@@ -1,5 +1,6 @@
 package org.example.event_management_system.model.dto.request;
 
+import jakarta.validation.Valid;
 import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,4 +18,5 @@ public class UserRegisterRequest {
     private String username;
     private String email;
     private String password;
+    private Integer phone;
 }

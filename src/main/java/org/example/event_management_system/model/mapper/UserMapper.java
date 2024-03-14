@@ -11,7 +11,6 @@ public class UserMapper {
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());
         user.setUsername(userDto.getUsername());
-        user.setPassword(userDto.getPassword());
         user.setRoleUser(userDto.getRole());
         return user;
     }
@@ -22,6 +21,7 @@ public class UserMapper {
         user.setFirstName(userDto.getFirstName());
         user.setLastName(userDto.getLastName());
         user.setUsername(userDto.getUsername());
+        user.setPhone(userDto.getPhone());
         return user;
     }
     public static UserDtoResponse toDtoResponse(User user) {
@@ -30,8 +30,18 @@ public class UserMapper {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .username(user.getUsername())
-                .password(user.getPassword())
                 .role(user.getRoleUser())
                 .build();
+    }
+    public static UserDtoResponse UserToUserDto(User user) {
+        UserDtoResponse userDtoResponse = new UserDtoResponse();
+        userDtoResponse.setId(user.getId());
+        userDtoResponse.setFirstName(user.getFirstName());
+        userDtoResponse.setLastName(user.getLastName());
+        userDtoResponse.setUsername(user.getUsername());
+        userDtoResponse.setEmail(user.getEmail());
+        userDtoResponse.setPhone(user.getPhone());
+        userDtoResponse.setRole(user.getRoleUser());
+        return userDtoResponse;
     }
 }

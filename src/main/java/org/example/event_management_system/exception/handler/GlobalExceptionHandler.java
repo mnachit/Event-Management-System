@@ -17,9 +17,9 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<Response<String>> handelIllegalArgumentException(Exception e)
+    public ResponseEntity<Response<ErrorMessage>> handelIllegalArgumentException(Exception e)
     {
-        Response<String> response = new Response<>();
+        Response<ErrorMessage> response = new Response<>();
         response.setErrors(((ValidationException) e).getErrorMessages());
         return ResponseEntity.badRequest().body(response);
     }

@@ -27,6 +27,7 @@ public class UserServiceImpl implements UserService {
             errorMessages.add(ErrorMessage.builder().message("Username already exists").build());
         if (errorMessages.size() > 0)
             throw new ValidationException(errorMessages);
+
         user.setRoleUser(RoleUser.USER);
         Date date = new Date();
         user.setCreatedAt(date);
@@ -35,9 +36,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByEmail(String email){
+    public User updateUser(User user) throws ValidationException {
+        userRepository.save(user);
+        return user;
+    }
+
+    @Override
+    public User findByEmail(String email) throws ValidationException{
+        if (userRepository.findByEmail(email).isEmpty()) {
+            throw new ValidationException(List.of(ErrorMessage.builder().message("Email not found").build()));
+        }
+
         return userRepository.findByEmail(email).get();
     }
+
 
     @Override
     public boolean findByEmailAndPassword(String email, String password) throws ValidationException {
@@ -46,5 +58,13 @@ public class UserServiceImpl implements UserService {
 
         }
         return true;
+    }
+
+    @Override
+    public User findByID(Long id) throws ValidationException {
+        if (userRepository.findById(id).isEmpty()) {
+            throw new ValidationException(List.of(ErrorMessage.builder().message("User not found").build()));
+        }
+        return userRepository.findById(id).get();
     }
 }

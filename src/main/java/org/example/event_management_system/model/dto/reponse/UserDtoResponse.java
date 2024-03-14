@@ -18,6 +18,6 @@ public class UserDtoResponse {
     private String lastName;
     private String username;
     private String email;
-    private String password;
+    private Integer phone;
     private RoleUser role;
 }
