@@ -24,7 +24,7 @@ public class Agenda {
     private Date createdAt;
     private Date updatedAt;
     private Date dateCreation;
-    @OneToOne
+    @ManyToOne
     private User createdBy;
     @ManyToOne
     private User user;

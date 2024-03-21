@@ -23,6 +23,9 @@ public class EvenementResponse {
     @NotBlank(message = "Event name is required")
     private String nomEvenement;
 
+    @NotBlank(message = "Amount is required")
+    private String amount;
+
     @NotBlank(message = "Localisation is required")
     private String localisation;
 

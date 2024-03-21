@@ -17,10 +17,25 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
-    private List<ErrorMessage> errorMessages = new ArrayList<>();
+
+    public String generateUsername(String firstName, String lastName) {
+        String usernameBase = firstName.substring(0, 1).toLowerCase() + lastName.toLowerCase();
+        if (userRepository.findByUsername(usernameBase).isEmpty()) {
+            return usernameBase;
+        }
+        else {
+            int i = 1;
+            while (userRepository.findByUsername(usernameBase + i).isPresent()) {
+                i++;
+            }
+            return usernameBase + i;
+        }
+    }
 
     @Override
     public User saveUserRoleAdmin(User user) throws ValidationException {
+        user.setUsername(generateUsername(user.getFirstName(), user.getLastName()));
+        List<ErrorMessage> errorMessages = new ArrayList<>();
         if (userRepository.findByEmail(user.getEmail()).isPresent())
             errorMessages.add(ErrorMessage.builder().message("Email already exists").build());
         if (userRepository.findByUsername(user.getUsername()).isPresent())

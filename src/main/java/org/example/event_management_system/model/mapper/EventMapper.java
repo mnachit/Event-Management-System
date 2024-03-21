@@ -9,7 +9,7 @@ import java.util.List;
 
 public class EventMapper {
     public static Evenement mapToEvenement(User user,EvenementResponse evenementResponse) {
-        return Evenement.builder().createdBy(user).nombreMaxUser(evenementResponse.getNombreMaxUser()).localisation(evenementResponse.getLocalisation()).nomEvenement(evenementResponse.getNomEvenement()).dateDebut(evenementResponse.getDateDebut()).dateFin(evenementResponse.getDateFin()).build();
+        return Evenement.builder().createdBy(user).amount(evenementResponse.getAmount()).nombreMaxUser(evenementResponse.getNombreMaxUser()).localisation(evenementResponse.getLocalisation()).nomEvenement(evenementResponse.getNomEvenement()).dateDebut(evenementResponse.getDateDebut()).dateFin(evenementResponse.getDateFin()).build();
     }
 
     public static Agenda mapToAgenda(User user,EvenementResponse evenementResponse) {

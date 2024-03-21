@@ -29,6 +29,7 @@ public class Evenement {
     private Time dateDebut;
     private Time dateFin;
     private Date createdAt;
+    private String amount;
     private Date updatedAt;
     @ManyToOne
     private User createdBy;
