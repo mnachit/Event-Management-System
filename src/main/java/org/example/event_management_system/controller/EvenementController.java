@@ -7,9 +7,12 @@ import org.example.event_management_system.model.dto.reponse.EvenementResponse;
 import org.example.event_management_system.model.entity.Evenement;
 import org.example.event_management_system.model.entity.User;
 import org.example.event_management_system.model.mapper.EventMapper;
-import org.example.event_management_system.repository.UserRepository;
+import org.example.event_management_system.model.request.AddUserInEvent;
+import org.example.event_management_system.repository.EvenementRepository;
 import org.example.event_management_system.service.EvenementService;
+import org.example.event_management_system.service.InvitationUserEvenementService;
 import org.example.event_management_system.service.UserService;
+import org.example.event_management_system.service.impl.InvitationUserEvenementServiceImpl;
 import org.example.event_management_system.util.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +25,8 @@ import java.util.List;
 public class EvenementController {
     private EvenementService evenementService;
     private UserService userService;
+    private EvenementRepository evenementRepository;
+    private InvitationUserEvenementService invitationUserEvenementService;
 
     @PostMapping("/evenement/new")
     public ResponseEntity<?> createEvenement(@RequestBody @Valid EvenementResponse evenementResponse) {
@@ -88,6 +93,34 @@ public class EvenementController {
                 return ResponseEntity.ok(evenet);
             }
             return ResponseEntity.ok(evenementService.deleteEvenement(id));
+        } catch (ValidationException e){
+            evenet.setMessage("The event was not found");
+            return ResponseEntity.ok(evenet);
+        }
+    }
+
+    @PostMapping("/evenement/new/user")
+    public ResponseEntity<?> addUserInEvent(@RequestBody @Valid AddUserInEvent userInEvent) {
+        Response<String> evenementResponse = new Response<>();
+        try {
+            User user = EventMapper.AddUserInEventToUser(userInEvent);
+            Evenement evenement = evenementService.FindById(userInEvent.getEventId());
+            invitationUserEvenementService.addUserInEvent(user, evenement);
+            evenementResponse.setMessage("The User was added to the event");
+            return ResponseEntity.ok(evenementResponse);
+        } catch (jakarta.validation.ValidationException e){
+            evenementResponse.setMessage("The event was not added");
+            return ResponseEntity.ok(evenementResponse);
+        }
+    }
+
+    @GetMapping("/evenement/{code}/show/allUser")
+    public ResponseEntity<?> showAllUserInEvent(@PathVariable @Valid String code) {
+        Response<List<User>> evenet = new Response<>();
+        try {
+            evenet.setMessage("");
+            evenet.setResult(invitationUserEvenementService.showAllUserInEvent(code));
+            return ResponseEntity.ok(evenet);
         } catch (ValidationException e){
             evenet.setMessage("The event was not found");
             return ResponseEntity.ok(evenet);

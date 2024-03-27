@@ -14,4 +14,5 @@ public interface EvenementService {
     public Evenement showEvenement(Long id) throws ValidationException;
     public Boolean deleteEvenement(Long id) throws ValidationException;
     public Evenement showEvenementByCode(String code) throws ValidationException;
+    public Evenement FindById(Long id) throws ValidationException;
 }

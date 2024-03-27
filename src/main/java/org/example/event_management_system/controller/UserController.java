@@ -38,8 +38,9 @@ public class UserController {
         try {
                         User user = UserMapper.UserRegisterRequestToEntity(userLoginRequest);
             user.setEmail(userLoginRequest.getEmail());
-            String token = jwtUtil.createToken(user);
             userService.saveUserRoleAdmin(user);
+            user.setId(userService.findIdByEmail(user.getEmail()));
+            String token = jwtUtil.createToken(user);
             userDtoResponseResponse.setMessage("User has been added");
             userDtoResponseResponse.setResult(token);
             return ResponseEntity.ok(userDtoResponseResponse);

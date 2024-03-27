@@ -82,4 +82,12 @@ public class UserServiceImpl implements UserService {
         }
         return userRepository.findById(id).get();
     }
+
+    @Override
+    public Long findIdByEmail(String email) throws ValidationException {
+        if (userRepository.findByEmail(email).isEmpty()) {
+            throw new ValidationException(List.of(ErrorMessage.builder().message("Email not found").build()));
+        }
+        return userRepository.findByEmail(email).get().getId();
+    }
 }

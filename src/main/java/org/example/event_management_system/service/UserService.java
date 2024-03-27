@@ -14,4 +14,6 @@ public interface UserService {
 
     public User findByID(Long id) throws ValidationException;
 
+    public Long findIdByEmail(String email) throws ValidationException;
+
 }

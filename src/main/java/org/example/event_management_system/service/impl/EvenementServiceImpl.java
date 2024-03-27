@@ -140,4 +140,19 @@ public class EvenementServiceImpl implements EvenementService {
         return null;
     }
 
+    @Override
+    public Evenement FindById(Long id) throws ValidationException {
+        List<ErrorMessage> errorMessages1 = new ArrayList<>();
+        if (evenementRepository.findById(id).isEmpty()) {
+            errorMessages1.add(ErrorMessage.builder().message("Event not found").build());
+        }
+        if (errorMessages1.size() > 0) {
+            throw new ValidationException(errorMessages1);
+        }
+        if (evenementRepository.findById(id).isPresent()) {
+            return evenementRepository.findById(id).get();
+        }
+        return null;
+    }
+
 }
