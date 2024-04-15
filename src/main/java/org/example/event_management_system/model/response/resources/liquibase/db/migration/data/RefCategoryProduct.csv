@@ -1,0 +1,7 @@
+id;code;label;stock_min;weight;date_created;last_updated
+1;ENC;Cartes Electroniques de Navigation;-1;-1;current_timestamp;current_timestamp
+2;NRMC;Cartes Marines Numériques Raster (géoTIFF);-1;-1;current_timestamp;current_timestamp
+3;NVMC;Cartes Marines Numériques Vectorielles (S-57);-1;-1;current_timestamp;current_timestamp
+4;PMC;Cartes Marines Papier;50;200;current_timestamp;current_timestamp
+5;NNB;Ouvrages Nautiques Numériques (PDF);-1;-1;current_timestamp;current_timestamp
+6;PNB;Ouvrages Nautiques Papier;10;-1;current_timestamp;current_timestamp

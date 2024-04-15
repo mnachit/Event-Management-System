@@ -66,4 +66,22 @@ public class InvitationUserEvenementServiceImpl implements InvitationUserEveneme
         }
         return users;
     }
+
+    @Override
+    public Boolean deleteUserInEvent(User user, Evenement evenement) throws ValidationException {
+        List<ErrorMessage> errorMessages = new ArrayList<>();
+        if (userRepository.findByEmail(user.getEmail()).isEmpty())
+            errorMessages.add(ErrorMessage.builder().message("User not found").build());
+        if (evenementRepository.findByCodeEvenement(evenement.getCodeEvenement()).isEmpty())
+            errorMessages.add(ErrorMessage.builder().message("Event not found").build());
+        if (errorMessages.size() > 0)
+            throw new ValidationException(errorMessages);
+        InvitationUserEvenement invitationUserEvenement = invitationUserEvenementRepository.findInvitationUserEvenementByUserIdAndEvenementId(user.getId(), evenement.getId()).get();
+        if (invitationUserEvenement == null)
+            errorMessages.add(ErrorMessage.builder().message("User not found in the event").build());
+        if (errorMessages.size() > 0)
+            throw new ValidationException(errorMessages);
+        invitationUserEvenementRepository.delete(invitationUserEvenement);
+        return true;
+    }
 }

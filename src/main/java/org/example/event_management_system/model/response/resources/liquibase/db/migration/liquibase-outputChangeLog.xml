@@ -1,0 +1,990 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="USER (generated)" id="1708299006027-1">
+        <createTable tableName="order">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="order_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_id" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_amount" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_currency" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_id" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-2">
+        <createTable tableName="pautorization">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pautorization_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-3">
+        <createTable tableName="ppermission">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ppermission_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="autorizations_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-4">
+        <createTable tableName="ref_category_product">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ref_category_product_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stock_min" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="weight" type="FLOAT4">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-5">
+        <createTable tableName="customer">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="customer_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="delivery_address" type="VARCHAR(255)"/>
+            <column name="delivery_zone" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(50)"/>
+            <column name="first_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="identity_number" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="identity_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-6">
+        <createTable tableName="article">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="article_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="article_shipping_info_id" type="BIGINT"/>
+            <column name="order_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-7">
+        <createTable tableName="ref_product">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ref_product_pkey"/>
+            </column>
+            <column name="average_latitude" type="VARCHAR(20)"/>
+            <column name="code" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code_iso" type="VARCHAR(10)"/>
+            <column name="currency" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="edition" type="VARCHAR(10)"/>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nord_est_lat_sud" type="VARCHAR(20)"/>
+            <column name="nord_est_long_ouest" type="VARCHAR(20)"/>
+            <column name="preview_scale" type="VARCHAR(20)"/>
+            <column name="published_on" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sud_ouest_lat_sud" type="VARCHAR(20)"/>
+            <column name="sud_ouest_long_ouest" type="VARCHAR(20)"/>
+            <column name="title" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_price" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url_preview" type="VARCHAR(255)"/>
+            <column name="category_product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-8">
+        <createTable tableName="user_permission">
+            <column name="p_user_account_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_permission_pkey"/>
+            </column>
+            <column name="p_permission_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_permission_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-9">
+        <createTable tableName="audit_user_action">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="audit_user_action_pkey"/>
+            </column>
+            <column name="audited_action" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="audited_field_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="audited_object_id" type="VARCHAR(20)"/>
+            <column name="audited_object_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="new_field_value" type="VARCHAR(20)"/>
+            <column name="old_field_value" type="VARCHAR(20)"/>
+            <column name="user_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_account_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-10">
+        <createTable tableName="puser_account">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="puser_account_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(20)"/>
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(20)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(20)"/>
+            <column name="user_kck_ref" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-11">
+        <createTable tableName="stock">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="stock_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_product_id" type="BIGINT"/>
+            <column name="product_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-12">
+        <createTable tableName="article_shipping_info">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="article_shipping_info_pkey"/>
+            </column>
+            <column name="cronopost_tracking_code" type="VARCHAR(20)"/>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="digital_prd_download_key" type="VARCHAR(60)"/>
+            <column name="digital_prd_downloadurl" type="VARCHAR(60)"/>
+            <column name="digital_prd_expiration_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="paper_prd_collection_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-13">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="order" constraintName="fk1oduxyuuo3n2g98l3j7754vym" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="customer" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-14">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="article" constraintName="fkaapcpucen8x7lggq6x6f6l0s6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="order" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-15">
+        <createIndex indexName="uk_order_orderid" tableName="order" unique="true">
+            <column name="order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-16">
+        <createIndex indexName="idx_autorization_label" tableName="pautorization">
+            <column name="label"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-17">
+        <addForeignKeyConstraint baseColumnNames="autorizations_id" baseTableName="ppermission" constraintName="fkmrad7nglqd8f1owkqhvitydra" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pautorization" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-18">
+        <addUniqueConstraint columnNames="label" constraintName="uk_autorization_label" tableName="pautorization"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-19">
+        <addForeignKeyConstraint baseColumnNames="p_permission_id" baseTableName="user_permission" constraintName="fk4dh6axg0rmxphd9t69xyjex13" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ppermission" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-20">
+        <addUniqueConstraint columnNames="label" constraintName="uk_permission_label" tableName="ppermission"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-21">
+        <addForeignKeyConstraint baseColumnNames="category_product_id" baseTableName="ref_product" constraintName="fkop05p0bt604elc1y6dnyk501h" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_category_product" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-22">
+        <addForeignKeyConstraint baseColumnNames="category_product_id" baseTableName="stock" constraintName="fkqf2broxvui5w1livaetl62vw4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_category_product" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-23">
+        <addUniqueConstraint columnNames="code" constraintName="uk_categoryproduct_code" tableName="ref_category_product"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-24">
+        <addUniqueConstraint columnNames="label" constraintName="uk_categoryproduct_label" tableName="ref_category_product"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-25">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="article" constraintName="fk29ayr9jp5xcxsybx22yfkm4p1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_product" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-26">
+        <addForeignKeyConstraint baseColumnNames="article_shipping_info_id" baseTableName="article" constraintName="fkt7loebfdadra23d31fco4wgfo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="article_shipping_info" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-27">
+        <createIndex indexName="uk_article_shipping_info" tableName="article" unique="true">
+            <column name="article_shipping_info_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-28">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="stock" constraintName="fkotge8pstvhpm3djkg8o8btfoo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_product" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-29">
+        <addForeignKeyConstraint baseColumnNames="p_user_account_id" baseTableName="user_permission" constraintName="fkk50eeywks8facwfpwcqe6wkkp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="puser_account" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-30">
+        <addForeignKeyConstraint baseColumnNames="user_account_id" baseTableName="audit_user_action" constraintName="fk7yx0wf62n4qkae9tu6lekdfsx" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="puser_account" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-31">
+        <createIndex indexName="uk_stock_category_product_id" tableName="stock" unique="true">
+            <column name="category_product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-32">
+        <createIndex indexName="uk_stock_product_id" tableName="stock" unique="true">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-33">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="article_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-34">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="article_shipping_info_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-35">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="audit_api_calls_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-36">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="audit_user_action_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-37">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="autorization_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-38">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="customer_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-39">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="order_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-40">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="permission_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-41">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="ref_category_product_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-42">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="ref_product_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-43">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="stock_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-44">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="user_account_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-45">
+        <createTable tableName="audit_api_calls">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="audit_api_calls_pkey"/>
+            </column>
+            <column name="api_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="consumer" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="input_object" type="VARCHAR(255)"/>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="output_object" type="VARCHAR(255)"/>
+            <column name="producer" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="returned_status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="scope" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1708299006027-46">
+        <createView fullDefinition="false" viewName="pg_stat_statements">SELECT pg_stat_statements.userid,
+    pg_stat_statements.dbid,
+    pg_stat_statements.queryid,
+    pg_stat_statements.query,
+    pg_stat_statements.plans,
+    pg_stat_statements.total_plan_time,
+    pg_stat_statements.min_plan_time,
+    pg_stat_statements.max_plan_time,
+    pg_stat_statements.mean_plan_time,
+    pg_stat_statements.stddev_plan_time,
+    pg_stat_statements.calls,
+    pg_stat_statements.total_exec_time,
+    pg_stat_statements.min_exec_time,
+    pg_stat_statements.max_exec_time,
+    pg_stat_statements.mean_exec_time,
+    pg_stat_statements.stddev_exec_time,
+    pg_stat_statements.rows,
+    pg_stat_statements.shared_blks_hit,
+    pg_stat_statements.shared_blks_read,
+    pg_stat_statements.shared_blks_dirtied,
+    pg_stat_statements.shared_blks_written,
+    pg_stat_statements.local_blks_hit,
+    pg_stat_statements.local_blks_read,
+    pg_stat_statements.local_blks_dirtied,
+    pg_stat_statements.local_blks_written,
+    pg_stat_statements.temp_blks_read,
+    pg_stat_statements.temp_blks_written,
+    pg_stat_statements.blk_read_time,
+    pg_stat_statements.blk_write_time,
+    pg_stat_statements.wal_records,
+    pg_stat_statements.wal_fpi,
+    pg_stat_statements.wal_bytes
+   FROM pg_stat_statements(true) pg_stat_statements(userid, dbid, queryid, query, plans, total_plan_time, min_plan_time, max_plan_time, mean_plan_time, stddev_plan_time, calls, total_exec_time, min_exec_time, max_exec_time, mean_exec_time, stddev_exec_time, rows, shared_blks_hit, shared_blks_read, shared_blks_dirtied, shared_blks_written, local_blks_hit, local_blks_read, local_blks_dirtied, local_blks_written, temp_blks_read, temp_blks_written, blk_read_time, blk_write_time, wal_records, wal_fpi, wal_bytes);</createView>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-1">
+        <createTable tableName="order">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="order_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_id" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_amount" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_currency" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_id" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-2">
+        <createTable tableName="pautorization">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pautorization_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-3">
+        <createTable tableName="ppermission">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ppermission_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="autorizations_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-4">
+        <createTable tableName="ref_category_product">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ref_category_product_pkey"/>
+            </column>
+            <column name="code" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="label" type="VARCHAR(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stock_min" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="weight" type="FLOAT4">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-5">
+        <createTable tableName="ref_product">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ref_product_pkey"/>
+            </column>
+            <column name="average_latitude" type="VARCHAR(20)"/>
+            <column name="code" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code_iso" type="VARCHAR(10)"/>
+            <column name="currency" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="edition" type="VARCHAR(10)"/>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nord_est_lat_sud" type="VARCHAR(20)"/>
+            <column name="nord_est_long_ouest" type="VARCHAR(20)"/>
+            <column name="preview_scale" type="VARCHAR(20)"/>
+            <column name="published_on" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sud_ouest_lat_sud" type="VARCHAR(20)"/>
+            <column name="sud_ouest_long_ouest" type="VARCHAR(20)"/>
+            <column name="title" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unit_price" type="FLOAT8">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url_preview" type="VARCHAR(255)"/>
+            <column name="category_product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-6">
+        <createTable tableName="reserved_stock_item">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="reserved_stock_item_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reserved_qty" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stock_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-7">
+        <createTable tableName="customer">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="customer_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="delivery_address" type="VARCHAR(255)"/>
+            <column name="delivery_zone" type="VARCHAR(20)"/>
+            <column name="email" type="VARCHAR(50)"/>
+            <column name="first_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="identity_number" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="identity_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(20)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-8">
+        <createTable tableName="article">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="article_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="article_shipping_info_id" type="BIGINT"/>
+            <column name="order_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-9">
+        <createTable tableName="user_permission">
+            <column name="p_user_account_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_permission_pkey"/>
+            </column>
+            <column name="p_permission_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_permission_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-10">
+        <createTable tableName="audit_user_action">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="audit_user_action_pkey"/>
+            </column>
+            <column name="audited_action" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="audited_field_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="audited_object_id" type="VARCHAR(20)"/>
+            <column name="audited_object_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="new_field_value" type="VARCHAR(20)"/>
+            <column name="old_field_value" type="VARCHAR(20)"/>
+            <column name="user_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_account_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-11">
+        <createTable tableName="puser_account">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="puser_account_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(20)"/>
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(20)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(20)"/>
+            <column name="user_kck_ref" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-12">
+        <createTable tableName="stock">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="stock_pkey"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category_product_id" type="BIGINT"/>
+            <column name="product_id" type="BIGINT"/>
+            <column name="available_quantity" type="INTEGER"/>
+            <column name="total_quantity" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-13">
+        <createTable tableName="article_shipping_info">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="article_shipping_info_pkey"/>
+            </column>
+            <column name="cronopost_tracking_code" type="VARCHAR(20)"/>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="digital_prd_download_key" type="VARCHAR(60)"/>
+            <column name="digital_prd_downloadurl" type="VARCHAR(60)"/>
+            <column name="digital_prd_expiration_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="paper_prd_collection_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-14">
+        <addForeignKeyConstraint baseColumnNames="customer_id" baseTableName="order" constraintName="fk1oduxyuuo3n2g98l3j7754vym" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="customer" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-15">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="article" constraintName="fkaapcpucen8x7lggq6x6f6l0s6" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="order" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-16">
+        <addForeignKeyConstraint baseColumnNames="order_id" baseTableName="reserved_stock_item" constraintName="fkrcq2eemw6hf7so8kgaccj4uxu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="order" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-17">
+        <createIndex indexName="uk_order_orderid" tableName="order" unique="true">
+            <column name="order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-18">
+        <createIndex indexName="idx_autorization_label" tableName="pautorization">
+            <column name="label"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-19">
+        <addForeignKeyConstraint baseColumnNames="autorizations_id" baseTableName="ppermission" constraintName="fkmrad7nglqd8f1owkqhvitydra" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="pautorization" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-20">
+        <addUniqueConstraint columnNames="label" constraintName="uk_autorization_label" tableName="pautorization"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-21">
+        <addForeignKeyConstraint baseColumnNames="p_permission_id" baseTableName="user_permission" constraintName="fk4dh6axg0rmxphd9t69xyjex13" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ppermission" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-22">
+        <addUniqueConstraint columnNames="label" constraintName="uk_permission_label" tableName="ppermission"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-23">
+        <addForeignKeyConstraint baseColumnNames="category_product_id" baseTableName="ref_product" constraintName="fkop05p0bt604elc1y6dnyk501h" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_category_product" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-24">
+        <addForeignKeyConstraint baseColumnNames="category_product_id" baseTableName="stock" constraintName="fkqf2broxvui5w1livaetl62vw4" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_category_product" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-25">
+        <addUniqueConstraint columnNames="code" constraintName="uk_categoryproduct_code" tableName="ref_category_product"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-26">
+        <addUniqueConstraint columnNames="label" constraintName="uk_categoryproduct_label" tableName="ref_category_product"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-27">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="article" constraintName="fk29ayr9jp5xcxsybx22yfkm4p1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_product" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-28">
+        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="stock" constraintName="fkotge8pstvhpm3djkg8o8btfoo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="ref_product" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-29">
+        <createIndex indexName="uk_product_code" tableName="ref_product" unique="true">
+            <column name="code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-30">
+        <createIndex indexName="idx_order_id" tableName="reserved_stock_item">
+            <column name="order_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-31">
+        <createIndex indexName="idx_stock_id" tableName="reserved_stock_item">
+            <column name="stock_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-32">
+        <addForeignKeyConstraint baseColumnNames="stock_id" baseTableName="reserved_stock_item" constraintName="fkcd56qgheil7x2gq6dc2tl5wp0" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="stock" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-33">
+        <addForeignKeyConstraint baseColumnNames="article_shipping_info_id" baseTableName="article" constraintName="fkt7loebfdadra23d31fco4wgfo" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="article_shipping_info" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-34">
+        <createIndex indexName="uk_article_shipping_info" tableName="article" unique="true">
+            <column name="article_shipping_info_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-35">
+        <addForeignKeyConstraint baseColumnNames="p_user_account_id" baseTableName="user_permission" constraintName="fkk50eeywks8facwfpwcqe6wkkp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="puser_account" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-36">
+        <addForeignKeyConstraint baseColumnNames="user_account_id" baseTableName="audit_user_action" constraintName="fk7yx0wf62n4qkae9tu6lekdfsx" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="puser_account" validate="true"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-37">
+        <createIndex indexName="uk_stock_category_product_id" tableName="stock" unique="true">
+            <column name="category_product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-38">
+        <createIndex indexName="uk_stock_product_id" tableName="stock" unique="true">
+            <column name="product_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-39">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="article_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-40">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="article_shipping_info_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-41">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="audit_api_calls_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-42">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="audit_user_action_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-43">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="autorization_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-44">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="customer_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-45">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="order_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-46">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="permission_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-47">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="ref_category_product_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-48">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="ref_product_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-49">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="rsvd_stock_sequence" startValue="10000"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-50">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="stock_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-51">
+        <createSequence cacheSize="1" cycle="false" dataType="bigint" incrementBy="1" maxValue="9223372036854775807" minValue="1" sequenceName="user_account_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-52">
+        <createTable tableName="audit_api_calls">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="audit_api_calls_pkey"/>
+            </column>
+            <column name="api_name" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="consumer" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="input_object" type="VARCHAR(255)"/>
+            <column name="last_updated" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="output_object" type="VARCHAR(255)"/>
+            <column name="producer" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="returned_status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="scope" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="USER (generated)" id="1709075516881-53">
+        <createView fullDefinition="false" viewName="pg_stat_statements">SELECT pg_stat_statements.userid,
+    pg_stat_statements.dbid,
+    pg_stat_statements.queryid,
+    pg_stat_statements.query,
+    pg_stat_statements.plans,
+    pg_stat_statements.total_plan_time,
+    pg_stat_statements.min_plan_time,
+    pg_stat_statements.max_plan_time,
+    pg_stat_statements.mean_plan_time,
+    pg_stat_statements.stddev_plan_time,
+    pg_stat_statements.calls,
+    pg_stat_statements.total_exec_time,
+    pg_stat_statements.min_exec_time,
+    pg_stat_statements.max_exec_time,
+    pg_stat_statements.mean_exec_time,
+    pg_stat_statements.stddev_exec_time,
+    pg_stat_statements.rows,
+    pg_stat_statements.shared_blks_hit,
+    pg_stat_statements.shared_blks_read,
+    pg_stat_statements.shared_blks_dirtied,
+    pg_stat_statements.shared_blks_written,
+    pg_stat_statements.local_blks_hit,
+    pg_stat_statements.local_blks_read,
+    pg_stat_statements.local_blks_dirtied,
+    pg_stat_statements.local_blks_written,
+    pg_stat_statements.temp_blks_read,
+    pg_stat_statements.temp_blks_written,
+    pg_stat_statements.blk_read_time,
+    pg_stat_statements.blk_write_time,
+    pg_stat_statements.wal_records,
+    pg_stat_statements.wal_fpi,
+    pg_stat_statements.wal_bytes
+   FROM pg_stat_statements(true) pg_stat_statements(userid, dbid, queryid, query, plans, total_plan_time, min_plan_time, max_plan_time, mean_plan_time, stddev_plan_time, calls, total_exec_time, min_exec_time, max_exec_time, mean_exec_time, stddev_exec_time, rows, shared_blks_hit, shared_blks_read, shared_blks_dirtied, shared_blks_written, local_blks_hit, local_blks_read, local_blks_dirtied, local_blks_written, temp_blks_read, temp_blks_written, blk_read_time, blk_write_time, wal_records, wal_fpi, wal_bytes);</createView>
+    </changeSet>
+</databaseChangeLog>

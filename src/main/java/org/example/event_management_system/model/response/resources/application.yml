@@ -11,7 +11,7 @@ spring:
       enabled: always
 
   datasource:
-    url: jdbc:mysql://localhost:3306/EventManagement?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/EventManagement11?createDatabaseIfNotExist=true
     username: root
     password:
   jpa:

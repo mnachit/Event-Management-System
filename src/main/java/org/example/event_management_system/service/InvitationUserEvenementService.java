@@ -11,4 +11,5 @@ import java.util.List;
 public interface InvitationUserEvenementService {
     public Boolean addUserInEvent(User user, Evenement evenement) throws ValidationException;
     public List<User> showAllUserInEvent(String code) throws ValidationException;
+    public Boolean deleteUserInEvent(User user, Evenement evenement) throws ValidationException;
 }

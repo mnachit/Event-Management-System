@@ -126,4 +126,19 @@ public class EvenementController {
             return ResponseEntity.ok(evenet);
         }
     }
+
+    @DeleteMapping("/evenement/user/delete/{id_user}/{code_event}")
+    public ResponseEntity<?> deleteUserInEvent(@PathVariable @Valid Long id_user, @PathVariable @Valid String code_event) {
+        Response<String> evenementResponse = new Response<>();
+        try {
+            User user = userService.findByID(id_user);
+            Evenement evenement = evenementService.showEvenementByCode(code_event);
+            invitationUserEvenementService.deleteUserInEvent(user, evenement);
+            evenementResponse.setMessage("The User was deleted from the event");
+            return ResponseEntity.ok(evenementResponse);
+        } catch (ValidationException e){
+            evenementResponse.setMessage("The event was not added");
+            return ResponseEntity.ok(evenementResponse);
+        }
+    }
 }

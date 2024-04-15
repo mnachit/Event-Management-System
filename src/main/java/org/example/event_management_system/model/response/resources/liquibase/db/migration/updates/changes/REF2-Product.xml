@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog classpath:/liquibase/config/dbchangelog-4.6.xsd">
+
+<changeSet author="m.chahdi" id="add-RefProduct">
+    <loadData file="liquibase/db/migration/data/RefProduct.csv" separator=";" tableName="ref_product"  >
+        id;category_product_id;code;code_iso;title;type;unit_price;currency;published_on;edition;preview_scale;url_preview;average_latitude;sud_ouest_lat_sud;sud_ouest_long_ouest;nord_est_lat_sud;nord_est_long_ouest;date_created;last_updated
+
+        <column name="id" type="NUMERIC"/>
+        <column name="category_product_id" type="NUMERIC"/>
+        <column name="code" type="STRING"/>
+        <column name="code_iso" type="STRING"/>
+        <column name="title" type="STRING"/>
+        <column name="type" type="STRING"/>
+        <column name="unit_price" type="NUMERIC"/>
+        <column name="currency" type="STRING"/>
+        <column name="published_on" type="DATE"/>
+        <column name="edition" type="STRING"/>
+        <column name="preview_scale" type="STRING"/>
+        <column name="url_preview" type="STRING"/>
+        <column name="average_latitude" type="STRING"/>
+        <column name="sud_ouest_lat_sud" type="STRING"/>
+        <column name="sud_ouest_long_ouest" type="STRING"/>
+        <column name="nord_est_lat_sud" type="STRING"/>
+        <column name="nord_est_long_ouest" type="STRING"/>
+        <column name="date_created" type="DATE"/>
+        <column name="last_updated" type="DATE"/>
+
+    </loadData>
+</changeSet>
+
+<changeSet author="m.chahdi" id="update-ref_product_sequence-last-value">
+    <sql>
+        SELECT setval('ref_product_sequence', (SELECT MAX(id) FROM ref_product));
+    </sql>
+</changeSet>
+
+</databaseChangeLog>

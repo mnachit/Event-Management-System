@@ -1,0 +1,61 @@
+id;category_product_id;code;code_iso;title;type;unit_price;currency;published_on;edition;preview_scale;url_preview;average_latitude;sud_ouest_lat_sud;sud_ouest_long_ouest;nord_est_lat_sud;nord_est_long_ouest;date_created;last_updated
+1;2;3003;1978;De Jorf Lasfar à Oued Tennsift;DIGITAL;300;MAD;2022;;1/145 847;img/3003.png;32-39.3N;31-56N;9-46W;33-22.6N ;8-36.2W ;current_timestamp;current_timestamp
+2;2;1003;1977;Port de Jorf Lasfar;DIGITAL;300;MAD;2022;;1/10 000;img/1003.png;33-08N;33-05N;8-41.2W ;33-10.95N;8-36.38W;current_timestamp;current_timestamp
+3;2;3007;;De Cap Ghir à Sidi Ifni;DIGITAL;300;MAD;2021;;1/150 010;img/3007.png;29-56.6N;29-15N;10-40W;30-44.2N ;9-30.2W;current_timestamp;current_timestamp
+4;2;3005;;De Oued Tennsift à Cap Ghir;DIGITAL;300;MAD;2021;;1/147 980;img/3005.png;31-19N;30-35N;10-28W;32-03N ;9-18.2W ;current_timestamp;current_timestamp
+5;2;2007;;Approches d'Agadir;DIGITAL;300;MAD;2021;;1/50 000;img/2007.png;30-24.08N;30-09.2N;9-56.3W;30-39N;9-32.9W;current_timestamp;current_timestamp
+6;2;1023;1982;Nouveau port de Safi;DIGITAL;300;MAD;2021;;1/10 000;img/1023.png;32-10.5250N;32-8.50N;9-21.50W;32-12.55N;9-14.51W;current_timestamp;current_timestamp
+7;2;1005;1981;Rade et port de Safi;DIGITAL;300;MAD;2020;;1/ 10 000;img/1005.png;32-17-58N;32-16.4N;9-20.6W ;32-20.45N ;9-13.61W;current_timestamp;current_timestamp
+8;2;1009;1983;Rade et Port d'Agadir;DIGITAL;300;MAD;2020;;1/10 000;img/1009.png;30-24-15.00N;30-22.2N;9-42W;30-26.26N;9-35.13W;current_timestamp;current_timestamp
+9;2;1112;;Port de Tanger-Ville;DIGITAL;300;MAD;2020;;1/12 500;img/1112.png;35-47-40.00N;35-45.9N;5-50.9W;35-53.2N;5-44.68W;current_timestamp;current_timestamp
+10;2;1013;;Abords du port de Tan Tan;DIGITAL;300;MAD;2019;;1/20 000;img/1013.png;28-29-38N;28-24N;11-24.7W;28-34.53N;11-16.58W;current_timestamp;current_timestamp
+11;2;1013A;;Port de Tan Tan;DIGITAL;300;MAD;2019;;1/5 000;img/1013A.png;;28-28.15N;11-21.7W;28-29.05N;11-20.87W;current_timestamp;current_timestamp
+12;2;1114;1971;Ports de Tanger Med et Ksar-Es-Sghir;DIGITAL;300;MAD;2017;;1/12 500;img/1114.png;35-54-00.00N;35-50.20N;5-35W;35-57.54N;5-28.77W;current_timestamp;current_timestamp
+13;2;3001;1974;De Mohammadia à Jorf Lasfar;DIGITAL;300;MAD;2017;;1/144 350;img/3001.png;33-34-00N;33-05N;9-00W;34-03.4N;7-17.4W ;current_timestamp;current_timestamp
+14;2;1001;1976;abords du port de Casablanca;DIGITAL;300;MAD;2016;2022_ed2;1/10 000;img/1001.png;33-37-49.5N;33-35.8N;7-40.11W;33-39.85N;7-33W;current_timestamp;current_timestamp
+15;2;2001;;Abords de Casablanca et de Mohammadia;DIGITAL;300;MAD;2016;;1/50000;img/2001.png;33-43N;33-33.3N;7-47.4W;33-53.5N;7-11.9W;current_timestamp;current_timestamp
+16;2;1002;1975;Abords de Mohammadia;DIGITAL;300;MAD;2015;2022_ed2;1/10 000;img/1002.png;33-44-28.5N;33-41.5N;7-24.9W;33-47.45N;7-20.05W;current_timestamp;current_timestamp
+17;2;3004;;De la Pte Malabata à Sidi AlHachmi  ;DIGITAL;300;MAD;2009;;1/142 000;img/3004.png;35-12N;34-30N;6-53W;35-54.2N;5-43.2W;current_timestamp;current_timestamp
+18;2;3002;1973;De Sidi AlHachmi à Mohammedia;DIGITAL;300;MAD;2009;;1/143 300;img/3002.png;34-11N;33-42N;8-00W;34-40N;6-17.4W;current_timestamp;current_timestamp
+19;3;MA330030;;De Jorf Lasfar à Oued Tennsift;DIGITAL_V;400;MAD;2023;1;90 000;img/MA330030.png;;;;;;current_timestamp;current_timestamp
+20;3;MA510030;;Port de Jorf Lasfar;DIGITAL_V;400;MAD;2022;1;8 000;img/MA510030.png;;;;;;current_timestamp;current_timestamp
+21;3;MA510230;;Noiuveau port de Safi;DIGITAL_V;400;MAD;2022;1;8 000;img/MA510230.png;;;;;;current_timestamp;current_timestamp
+22;3;MA330050;;De Oued Tennsift à Cap Ghir;DIGITAL_V;400;MAD;2020;1;90 000;img/MA330050.png;;;;;;current_timestamp;current_timestamp
+23;3;MA330070;;De Cap Ghir à Sidi Ifni;DIGITAL_V;400;MAD;2020;1;90 000;img/MA330070.png;;;;;;current_timestamp;current_timestamp
+24;3;MA420070;;Approches d'Agadir;DIGITAL_V;400;MAD;2020;1;45 000;img/MA420070.png;;;;;;current_timestamp;current_timestamp
+25;3;MA510090;;Rade et Port d'Agadir;DIGITAL_V;400;MAD;2020;2;8 000;img/MA510090.png;;;;;;current_timestamp;current_timestamp
+26;3;MA510050;;Rade et port de Safi;DIGITAL_V;400;MAD;2019;1;8 000;img/MA510050.png;;;;;;current_timestamp;current_timestamp
+27;3;MA611140;;Ports de Tanger Med et Ksar-Es-Sghir;DIGITAL_V;400;MAD;2019;1;12 000;img/MA611140.png;;;;;;current_timestamp;current_timestamp
+28;3;MA611120;;Port de Tanger-Ville;DIGITAL_V;400;MAD;2019;1;12000;img/MA611120.png;;;;;;current_timestamp;current_timestamp
+29;3;MA330010;;De Mohammadia à Jorf Lasfar;DIGITAL_V;400;MAD;2018;2;90 000;img/MA330010.png;;;;;;current_timestamp;current_timestamp
+30;3;MA510130;;Abords du port de Tan Tan;DIGITAL_V;400;MAD;2018;1;12 000;img/MA510130.png;;;;;;current_timestamp;current_timestamp
+31;3;MA61013A;;Port de Tan Tan;DIGITAL_V;400;MAD;2018;1;4 000;img/MA61013A.png;;;;;;current_timestamp;current_timestamp
+32;3;MA420010;;Abords de Casablanca et de Mohammadia;DIGITAL_V;400;MAD;2017;1;45 000;img/MA420010.png;;;;;;current_timestamp;current_timestamp
+33;3;MA510010;;abords du port de Casablanca;DIGITAL_V;400;MAD;2016;1;8 000;img/MA510010.png;;;;;;current_timestamp;current_timestamp
+34;3;MA510020;;Abords de Mohammadia;DIGITAL_V;400;MAD;2015;2;8 000;img/MA510020.png;;;;;;current_timestamp;current_timestamp
+35;3;MA330020;;De Sidi AlHachmi à Mohammedia;DIGITAL_V;400;MAD;2009;5;90 000;img/MA330020.png;;;;;;current_timestamp;current_timestamp
+36;3;MA330040;;De la Pte Malabata à Sidi AlHachmi  ;DIGITAL_V;400;MAD;2009;2;90 000;img/MA330040.png;;;;;;current_timestamp;current_timestamp
+37;4;MAP30030;1978;De Jorf Lasfar à Oued Tennsift;PAPER;400;MAD;2022;;1/145 847;img/3003.png;32-39.3N;31-56N;9-46W;33-22.6N ;8-36.2W ;current_timestamp;current_timestamp
+38;4;MAP10030;1977;Port de Jorf Lasfar;PAPER;400;MAD;2022;;1/10 000;img/1003.png;33-08N;33-05N;8-41.2W ;33-10.95N;8-36.38W;current_timestamp;current_timestamp
+39;4;MAP30070;;De Cap Ghir à Sidi Ifni;PAPER;400;MAD;2021;;1/150 010;img/3007.png;29-56.6N;29-15N;10-40W;30-44.2N ;9-30.2W;current_timestamp;current_timestamp
+40;4;MAP30050;;De Oued Tennsift à Cap Ghir;PAPER;400;MAD;2021;;1/147 980;img/3005.png;31-19N;30-35N;10-28W;32-03N ;9-18.2W ;current_timestamp;current_timestamp
+41;4;MAP20070;;Approches d'Agadir;PAPER;400;MAD;2021;;1/50 000;img/2007.png;30-24.08N;30-09.2N;9-56.3W;30-39N;9-32.9W;current_timestamp;current_timestamp
+42;4;MAP10230;1982;Nouveau port de Safi;PAPER;400;MAD;2021;;1/10 000;img/1023.png;32-10.5250N;32-8.50N;9-21.50W;32-12.55N;9-14.51W;current_timestamp;current_timestamp
+43;4;MAP10050;1981;Rade et port de Safi;PAPER;400;MAD;2020;;1/ 10 000;img/1005.png;32-17-58N;32-16.4N;9-20.6W ;32-20.45N ;9-13.61W;current_timestamp;current_timestamp
+44;4;MAP10090;1983;Rade et Port d'Agadir;PAPER;400;MAD;2020;;1/10 000;img/1009.png;30-24-15.00N;30-22.2N;9-42W;30-26.26N;9-35.13W;current_timestamp;current_timestamp
+45;4;MAP11120;;Port de Tanger-Ville;PAPER;400;MAD;2020;;1/12 500;img/1112.png;35-47-40.00N;35-45.9N;5-50.9W;35-53.2N;5-44.68W;current_timestamp;current_timestamp
+46;4;MAP10130;;Abords du port de Tan Tan;PAPER;400;MAD;2019;;1/20 000;img/1013.png;28-29-38N;28-24N;11-24.7W;28-34.53N;11-16.58W;current_timestamp;current_timestamp
+47;4;MAP1013A;;Port de Tan Tan;PAPER;400;MAD;2019;;1/5 000;img/1013A.png;;28-28.15N;11-21.7W;28-29.05N;11-20.87W;current_timestamp;current_timestamp
+48;4;MAP11140;1971;Ports de Tanger Med et Ksar-Es-Sghir;PAPER;400;MAD;2017;;1/12 500;img/1114.png;35-54-00.00N;35-50.20N;5-35W;35-57.54N;5-28.77W;current_timestamp;current_timestamp
+49;4;MAP30010;1974;De Mohammadia à Jorf Lasfar;PAPER;400;MAD;2017;;1/144 350;img/3001.png;33-34-00N;33-05N;9-00W;34-03.4N;7-17.4W ;current_timestamp;current_timestamp
+50;4;MAP10010;1976;abords du port de Casablanca;PAPER;400;MAD;2016;2022_ed2;1/10 000;img/1001.png;33-37-49.5N;33-35.8N;7-40.11W;33-39.85N;7-33W;current_timestamp;current_timestamp
+51;4;MAP20010;;Abords de Casablanca et de Mohammadia;PAPER;400;MAD;2016;;1/50000;img/2001.png;33-43N;33-33.3N;7-47.4W;33-53.5N;7-11.9W;current_timestamp;current_timestamp
+52;4;MAP10020;1975;Abords de Mohammadia;PAPER;400;MAD;2015;2022_ed2;1/10 000;img/1002.png;33-44-28.5N;33-41.5N;7-24.9W;33-47.45N;7-20.05W;current_timestamp;current_timestamp
+53;4;MAP30040;;De la Pte Malabata à Sidi AlHachmi  ;PAPER;400;MAD;2009;;1/142 000;img/3004.png;35-12N;34-30N;6-53W;35-54.2N;5-43.2W;current_timestamp;current_timestamp
+54;4;MAP30020;1973;De Sidi AlHachmi à Mohammedia;PAPER;400;MAD;2009;;1/143 300;img/3002.png;34-11N;33-42N;8-00W;34-40N;6-17.4W;current_timestamp;current_timestamp
+55;5;MANINM;;Instructions nautiques du Maroc  (PDF);DIGITAL;800;MAD;2018;1;;img/Instructions nautiques des côtes marocaines.png;;;;;;current_timestamp;current_timestamp
+56;5;MANLFRS;;Livre des feux et radio-signaux  (PDF);DIGITAL;500;MAD;2018;1;;img/Livre des feux et radio-signaux des côtes marocaines.png;;;;;;current_timestamp;current_timestamp
+57;5;MANAM;;Annuaire des marée 2024  (PDF);DIGITAL;300;MAD;2023;1;;img/annuaire des marées.png;;;;;;current_timestamp;current_timestamp
+58;6;MAPINM;;Instructions nautiques des côtes marocaines;PAPER;1000;MAD;2018;1;700g;img/Instructions nautiques des côtes marocaines.png;;;;;;current_timestamp;current_timestamp
+59;6;MAPLFRS;;Livre des feux et radio-signaux ;PAPER;600;MAD;2018;1;400g;img/Livre des feux et radio-signaux des côtes marocaines.png;;;;;;current_timestamp;current_timestamp
+60;6;MAPAM;;Annuaire des marée;PAPER;400;MAD;2023;1;450g;img/annuaire des marées.png;;;;;;current_timestamp;current_timestamp

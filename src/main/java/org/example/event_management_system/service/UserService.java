@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface UserService {
     public User saveUserRoleAdmin(User user) throws ValidationException;
+    public boolean isPasswordValid(String rawPassword, String encodedPassword);
     public User updateUser(User user) throws ValidationException;
     public User findByEmail(String email) throws ValidationException;
 
@@ -15,5 +16,7 @@ public interface UserService {
     public User findByID(Long id) throws ValidationException;
 
     public Long findIdByEmail(String email) throws ValidationException;
+
+    public Boolean deleteUser(Long id) throws ValidationException;
 
 }

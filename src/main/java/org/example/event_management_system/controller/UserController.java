@@ -19,6 +19,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class UserController {
     private UserService userService;
     private final AuthenticationManager authenticationManager;
     private JwtUtil jwtUtil;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     @PostMapping("/rest/auth/new/user")
     public ResponseEntity<?> createUser(@RequestBody UserRegisterRequest userLoginRequest)
@@ -56,8 +58,8 @@ public class UserController {
         Response<String> response = new Response<>();
         try {
             userService.findByEmailAndPassword(userLoginRequest.getEmail(), userLoginRequest.getPassword());
-            Authentication authentication =
-                    authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userLoginRequest.getEmail(), userLoginRequest.getPassword()));
+//            Authentication authentication =
+//                    authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userLoginRequest.getEmail(), userLoginRequest.getPassword()));
             User user = userService.findByEmail(userLoginRequest.getEmail());
             String token = jwtUtil.createToken(user);
             response.setResult(token);
@@ -73,7 +75,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{email}")
-    public ResponseEntity<?> getUser(@PathVariable String email)
+    public ResponseEntity<Response<UserDtoResponse>> getUser(@PathVariable String email)
     {
         Response<UserDtoResponse> response = new Response<>();
         try {
@@ -106,6 +108,20 @@ public class UserController {
             return ResponseEntity.ok(response);
         } catch (jakarta.validation.ValidationException e){
             response.setMessage("User has not been edited");
+            return ResponseEntity.ok(response);
+        }
+    }
+
+    @DeleteMapping("/user/delete/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable Long id)
+    {
+        Response<String> response = new Response<>();
+        try {
+            userService.deleteUser(id);
+            response.setMessage("User has been deleted");
+            return ResponseEntity.ok(response);
+        } catch (jakarta.validation.ValidationException e){
+            response.setMessage("User has not been deleted");
             return ResponseEntity.ok(response);
         }
     }

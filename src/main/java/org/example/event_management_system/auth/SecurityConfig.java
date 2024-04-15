@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -31,7 +32,7 @@ public class SecurityConfig  {
         return authenticationManagerBuilder.build();
     }
 
-
+    //configure une chaîne de filtres de sécurité
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -46,11 +47,15 @@ public class SecurityConfig  {
         return http.build();
     }
 
-
-    @SuppressWarnings("deprecation")
     @Bean
     public NoOpPasswordEncoder passwordEncoder() {
         return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder1() {
+        return new BCryptPasswordEncoder();
+    }
+
 
 }
